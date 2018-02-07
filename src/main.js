@@ -14,6 +14,6 @@ new Vue({
   template: '<App/>',
   components: { 
 	App,
-	Navbar
+	Navbar,
   }
 })

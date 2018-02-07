@@ -1,33 +1,55 @@
 <template>
-	<div id="nav" class="ui secondary pointing three item menu">	
-		<router-link class="item" v-bind:to="'/ltl'" active-class="active"><i class="shipping icon"></i></router-link>
-		<router-link class="item" v-bind:to="'/parcel'" active-class="active"><i class="open envelope icon"></i></router-link>
-		<router-link class="item" v-bind:to="'/combined'" active-class="active">
-			<i class="shipping icon"></i>
-			<i class="plus icon"></i>
-			<i class="open envelope icon"></i>
-		</router-link>
-	</div>
+	<nav id="nav">
+		<div class="nav-wrapper">
+			<ul class="right">
+				<router-link tag="li" v-bind:to="'/ltl'" active-class="active">
+					<a class="center"><i id="ltl" class="material-icons">local_shipping</i></a>
+				</router-link>
+				<router-link tag="li" v-bind:to="'/parcel'" active-class="active">
+					<a class="center"><i id="parcel" class="material-icons">mail</i></a>
+				</router-link>
+				<router-link tag="li" v-bind:to="'/combined'" active-class="active">
+					<a class="center"><i id="combined" class="tiny material-icons">local_shipping add mail</i></a>
+				</router-link>
+				<payment-types></payment-types>
+			</ul>
+		</div>
+	</nav>
 </template>
 
 <script>
+import PaymentTypes from './PaymentTypesDropdown.vue'
+
 export default {
 	name: 'NavigationMenu',
-	data(){
-		return{}
+	data () {
+		return {
+
+		}
 	},
 	methods: {
+	},
+	props: [
+
+	],
+	components: {
+		PaymentTypes
 	}
 
 }
 </script>
 
 <style lang="css" scoped>
-	#nav {
-		width: 20%;
-		margin-left: 40% !important;
+	#combined {
+		font-size: 20px;
 	}
-	i.icon {
-		color: #2c3e50;
+	nav li {
+		width: 33.3%;
+	}
+	nav li:last-child {
+		width: 33.4%;
+	}
+	ul {
+		width: 100%;
 	}
 </style>

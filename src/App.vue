@@ -1,36 +1,47 @@
 <template>
-  <div id="app">
-	<navigation-menu></navigation-menu>
 	<div class="container">
-    	<!-- <router-view></router-view> -->
+		<navigation-menu></navigation-menu>
+		<br/>
+		<status-chips></status-chips>
+		 <div class="chip">
+			Jane Doe
+		</div>
+		<div class="chip">
+			Outbound
+		</div>
+		<div class="chip">
+			Origin: MA
+		</div>
+		<div class="chip">
+			Destination: CA
+		</div>
+		<ul class="collapsible" data-collapsible="accordion">
+			<qrq-address></qrq-address>
+			<li>
+				<div class="collapsible-header center"><i class="material-icons">toc</i> Line Items & Special Services</div>
+				<div class="collapsible-body">
+					<router-view></router-view>
+				</div>
+			</li>
+		</ul>
 	</div>
-  </div>
 </template>
 
 <script>
-import NavigationMenu from './components/NavigationMenu.vue';
+import NavigationMenu from './components/NavigationMenu.vue'
+import QrqAddress from './components/QRQAddress.vue'
 
 export default {
   name: 'app',
   components: {
-	  NavigationMenu
+	  NavigationMenu,
+	  QrqAddress
   }
 }
 </script>
-
+	
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  top:50%;
-  left:50%;
-  height: 75%;
-  width: 75%;
-  transform: translate(17%, 17%);
-  background-color: #ffffff;
-  border:2px solid #2c3e50;
-}
+	.collapsible-body {
+		padding: 1rem;
+	}
 </style>
